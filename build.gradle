@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        /* maven { url "http://repo.spring.io/libs-release" }*/
+        mavenLocal()
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot' 
+
+
+jar {
+    baseName = 'test'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+   /* compile('org.springframework.boot:spring-boot-starter-web')*/
+    runtime('mysql:mysql-connector-java')
+   compile( 'com.hazelcast:hazelcast-spring:3.5.2')
+    compile( 'com.hazelcast:hazelcast:3.5.2')
+    compile( 'com.hazelcast:hazelcast-all:3.5.2')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test') 
+}
+
